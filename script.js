@@ -5,6 +5,7 @@ let warningMsg=document.querySelector(".warning");
 new_member.children[3].addEventListener("click",add_member)
 
 let members_container=document.querySelector(".member-container");
+sorting();
 
 function add_member(){
     let firstName=new_member.children[0];
@@ -27,6 +28,7 @@ function add_member(){
         let date=document.createElement("span");
         let newDate=new Date();
         date.innerHTML=newDate.getDate()+"-"+newDate.getMonth()+"-"+newDate.getFullYear();
+        date.setAttribute("class","dates");
 
         name.appendChild(Fname);
         name.appendChild(date)
@@ -57,6 +59,47 @@ function add_member(){
 
 function sorting(){
     let Allmembers=document.querySelectorAll(".memeber");
+    Allmembers=Array.prototype.slice.call(Allmembers, 0);
+    Allmembers=Array.prototype.sort.call(Allmembers, (a,b)=>{
+        return b.children[1].innerText - a.children[1].innerText;
+    });
     console.log(Allmembers);
-    members_container.innerHTML=Allmembers.sort((a,b)=> a.children[3].innerText-a.children[3].innerText);
+
+    let sortedTable=document.createElement("div")
+    console.log(Allmembers)
+
+   Allmembers.forEach((ele)=>{
+    console.log(ele);
+    
+        sortedTable.appendChild(ele);
+   })
+
+   members_container.innerHTML=sortedTable.innerHTML;
+
+// console.log(sortedTable)
+
+}
+updateData();
+
+function updateData(){
+    let Allmembers=document.querySelectorAll(".memeber");
+    Allmembers.forEach((ele)=>{
+        let btns=ele.querySelectorAll("button");
+        // console.log(btns[0]);
+        btns[1].addEventListener("click",()=>{
+            // console.log("hello");
+            ele.remove();
+        })
+
+        btns[0].addEventListener("click",()=>{
+            ele.querySelector(".score").innerText-=5;
+            sorting();
+            updateData();
+        })
+        btns[2].addEventListener("click",()=>{
+            ele.querySelector(".score").innerText=parseInt(ele.querySelector(".score").innerText)+5;
+            sorting();
+            updateData();
+        })
+    })
 }

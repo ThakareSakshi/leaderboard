@@ -4,18 +4,25 @@
     box-sizing: border-box;
 }
 :root{
-    --primary-color: rgb(127, 255, 131);
+    --primary-color: rgb(146, 123, 221);
+}
+.dates{
+    font-size: 12px;
+    color:grey;
 }
 
 .memeber{
     display: flex;
-    max-width: 600px;
+    /* max-width: 600px; */
     width: 100%;
     justify-content: space-between;
     padding:30px;
     margin:10px;
     text-transform: uppercase;
     background-color: var(--primary-color);
+    text-align: center;
+    border-radius: 10px;
+    border: 2px solid rgb(72, 26, 191);
 }
 .name{
     display: flex;
