@@ -1,0 +1,53 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+:root{
+    --primary-color: rgb(127, 255, 131);
+}
+
+.memeber{
+    display: flex;
+    max-width: 600px;
+    width: 100%;
+    justify-content: space-between;
+    padding:30px;
+    margin:10px;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+}
+.name{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    background:transparent;
+    border:none;
+    outline:none;
+    margin:10px;
+}
+
+.submit-btn{
+
+    padding: 10px 30px;
+    background-color: var(--primary-color);
+}
+input{
+    padding:10px;
+    border-color:var(--primary-color);
+    outline:none;
+
+}
+.warning{
+    font-size: 20px;
+    color:red;
+    text-align: center;
+    display: none;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
