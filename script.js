@@ -51,6 +51,7 @@ function add_member(){
         members_container.appendChild(member);
         
        sorting();
+       updateData();
        
     }
 }
@@ -69,7 +70,7 @@ function sorting(){
     console.log(Allmembers)
 
    Allmembers.forEach((ele)=>{
-    console.log(ele);
+    // console.log(ele);
     
         sortedTable.appendChild(ele);
    })
@@ -87,8 +88,10 @@ function updateData(){
         let btns=ele.querySelectorAll("button");
         // console.log(btns[0]);
         btns[1].addEventListener("click",()=>{
-            // console.log("hello");
+            console.log("hello");
             ele.remove();
+            sorting();
+            updateData();
         })
 
         btns[0].addEventListener("click",()=>{
